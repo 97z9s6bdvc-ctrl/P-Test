@@ -1,57 +1,97 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P Test Ver0.1</title>
-<style>
-body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#222;color:#fff;text-align:center;margin:0}
-#screen{margin:20px auto;padding:16px;width:90%;max-width:420px;background:#333;border-radius:12px}
-button{font-size:18px;padding:12px 18px;margin:8px;border-radius:10px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P Test Ver.0.2</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <h1>🎰 P Test</h1>
-<div id="screen">
-<div>持ち玉: <span id="balls">250</span>発</div>
-<div>貸出: <span id="loan">1</span>回</div>
-<hr>
-<div id="msg">待機中</div>
+
+<div id="game">
+
+    <div id="screen">
+
+        <div id="lcd">
+
+            <div id="message">
+                待機中
+            </div>
+
+            <div id="ballArea">
+
+                <div id="ball">
+                    ●
+                </div>
+
+                <div id="heso">
+                    ▼
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="reserveArea">
+
+            <span>保留</span>
+
+            <div id="reserve">
+
+                <div class="reserveSlot"></div>
+                <div class="reserveSlot"></div>
+                <div class="reserveSlot"></div>
+                <div class="reserveSlot"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="status">
+
+        <div>
+            持ち玉
+            <span id="balls">
+                250
+            </span>
+            発
+        </div>
+
+        <div>
+            貸出
+            <span id="loan">
+                1
+            </span>
+            回
+        </div>
+
+        <div id="needleMessage">
+            釘：？？？
+        </div>
+
+    </div>
+
+    <div id="buttons">
+
+        <button id="startButton">
+            ▶️ 打ち出し開始
+        </button>
+
+        <button id="stopButton">
+            ⏸️ 停止
+        </button>
+
+    </div>
+
 </div>
-<button onclick="start()">▶️ 打ち出し開始</button>
-<button onclick="stopFire()">⏸️ 停止</button>
 
-<script>
-let balls=250;
-let loan=1;
-let timer=null;
+<script src="script.js"></script>
 
-function update(){
- document.getElementById("balls").textContent=balls;
- document.getElementById("loan").textContent=loan;
-}
-function fire(){
- balls--;
- if(balls<=0){
-   loan++;
-   balls+=250;
-   document.getElementById("msg").textContent="💰250発貸出！";
- }else{
-   document.getElementById("msg").textContent="● 発射中...";
- }
- update();
-}
-function start(){
- if(timer) return;
- timer=setInterval(fire,600);
- document.getElementById("msg").textContent="▶️ 打ち出し開始";
-}
-function stopFire(){
- clearInterval(timer);
- timer=null;
- document.getElementById("msg").textContent="⏸️ 停止";
-}
-update();
-</script>
 </body>
 </html>
