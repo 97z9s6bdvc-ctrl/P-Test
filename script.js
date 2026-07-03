@@ -10,7 +10,8 @@ let firing = false;
 let fireTimer = null;
 
 // 保留
-let reserve = 0;
+// 保留
+let reserve = [];
 const MAX_RESERVE = 4;
 
 // 釘
