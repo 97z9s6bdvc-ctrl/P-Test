@@ -127,8 +127,31 @@ function animateBall(){
 
 function enterHeso(){
 
-    if(reserve>=MAX_RESERVE){
+    if(reserve.length >= MAX_RESERVE){
 
+        document.getElementById("message").innerText =
+        "満タン";
+
+        return;
+
+    }
+
+    // ヘソ賞球
+    balls++;
+
+    // 仮抽選（まだハズレ固定でOK）
+    reserve.push({
+        hit:false,
+        symbol:0
+    });
+
+    updateReserve();
+
+    updateScreen();
+
+    document.getElementById("message").innerText =
+    "✨入賞！";
+}
         document.getElementById("message").innerText =
         "満タン";
 
@@ -150,6 +173,23 @@ function enterHeso(){
 function updateReserve(){
 
     const slots =
+    document.querySelectorAll(".reserveSlot");
+
+    slots.forEach((slot,index)=>{
+
+        if(index < reserve.length){
+
+            slot.style.background = "white";
+
+        }else{
+
+            slot.style.background = "#444";
+
+        }
+
+    });
+
+}
     document.querySelectorAll(".reserveSlot");
 
     slots.forEach((slot,index)=>{
