@@ -10,16 +10,16 @@ let firing = false;
 let fireTimer = null;
 
 // 保留
-let reserve = 0;
+let reserve = [];
 const MAX_RESERVE = 4;
 
 // 釘
 const needleTable = [
-    {name:"今日はかなり渋そう…", rate:0.035},
-    {name:"今日は少し渋いかも", rate:0.045},
-    {name:"今日は普通かな", rate:0.055},
-    {name:"今日は回りそう！", rate:0.063},
-    {name:"今日は神釘だ！", rate:0.070}
+    {name:"🥕", rate:0.035},
+    {name:"🐇", rate:0.045},
+    {name:"🌙", rate:0.055},
+    {name:"🌕", rate:0.063},
+    {name:"🌏", rate:0.070}
 ];
 
 const needle =
@@ -125,11 +125,26 @@ function animateBall(){
 // ------------------------
 
 function enterHeso(){
-
-    if(reserve>=MAX_RESERVE){
+    if(reserve.length >= MAX_RESERVE){
+        document.getElementById("message").innerText =
+        "🎑";
+        return;
+    }
+    // ヘソ賞球
+    balls++;
+    // 仮の抽選結果
+    reserve.push({
+        hit:false,
+        color:"white"
+    });
+    updateReserve();
+    updateScreen();
+    document.getElementById("message").innerText =
+    "✨入賞！";
+}
 
         document.getElementById("message").innerText =
-        "保留満タン";
+        "🎑";
 
         return;
 
@@ -137,10 +152,20 @@ function enterHeso(){
 
     reserve++;
 
-    updateReserve();
+    function updateReserve(){
+    const slots =
+    document.querySelectorAll(".reserveSlot");
+    slots.forEach((slot,index)=>{
+        if(index < reserve.length){
+            slot.style.background = "white";
+        }else{
+            slot.style.background = "#444";
+        }
+    });
+}
 
     document.getElementById("message").innerText =
-    "✨ヘソ入賞！";
+    "✨入賞！";
 
 }
 
