@@ -134,10 +134,7 @@ function enterHeso(){
     // ヘソ賞球
     balls++;
 
-    reserve.push({
-        hit:false,
-        symbol:0
-    });
+reserve.push(lottery());
 
     updateReserve();
     updateScreen();
