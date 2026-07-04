@@ -188,17 +188,28 @@ function updateReserve(){
 
     slots.forEach((slot,index)=>{
 
-        if(index < reserve.length){
+if(index < reserve.length){
 
+    switch(reserve[index].color){
+
+        case "white":
             slot.style.background = "white";
+            break;
 
-        }else{
+        case "red":
+            slot.style.background = "red";
+            break;
 
-            slot.style.background = "#444";
+        case "rainbow":
+            slot.style.background =
+            "linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,purple)";
+            break;
 
-        }
+    }
 
-    });
+}else{
+
+    slot.style.background = "#444";
 
 }
     
