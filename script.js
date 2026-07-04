@@ -129,12 +129,7 @@ function enterHeso(){
 
     if(reserve.length >= MAX_RESERVE){
 
-        document.getElementById("message").innerText =
-        "満タン";
-
-        return;
-
-    }
+        
 
     // ヘソ賞球
     balls++;
@@ -152,22 +147,7 @@ function enterHeso(){
     document.getElementById("message").innerText =
     "✨入賞！";
 }
-        document.getElementById("message").innerText =
-        "満タン";
-
-        return;
-
-    }
-
-    reserve++;
-
-    updateReserve();
-
-    document.getElementById("message").innerText =
-    "✨入賞！";
-
-}
-
+        
 // ------------------------
 
 function updateReserve(){
