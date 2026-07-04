@@ -146,6 +146,44 @@ function enterHeso(){
         
 // ------------------------
 
+function lottery(){
+
+    const hit = Math.random() < (1/99);
+
+    if(!hit){
+        return {
+            hit:false,
+            symbol:0,
+            color:"white"
+        };
+    }
+
+    const symbols = [
+        111,222,333,444,
+        555,666,777,888,999
+    ];
+
+    const symbol =
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+    let color = "white";
+
+    if(symbol === 777){
+        color = "rainbow";
+    }else if(symbol % 2 === 1){
+        color = "red";
+    }
+
+    return {
+        hit:true,
+        symbol:symbol,
+        color:color
+    };
+
+}
+
+// ------------------------
+
 function updateReserve(){
 
     const slots =
