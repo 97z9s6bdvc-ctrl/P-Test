@@ -160,8 +160,7 @@ function lottery(){
         555,666,777,888,999
     ];
 
-    const symbol =
-        symbols[Math.floor(Math.random()*symbols.length)];
+const symbol = 777;
 
     let color = "white";
 
