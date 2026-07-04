@@ -160,7 +160,7 @@ function lottery(){
         555,666,777,888,999
     ];
 
-const symbol = 777;
+	const symbol = 777;
 
     let color = "white";
 
