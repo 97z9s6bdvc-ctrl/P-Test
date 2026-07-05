@@ -232,15 +232,42 @@ function consumeReserve(){
 
     if(result.hit){
 
-        document.getElementById("message").innerText =
-        result.symbol + " BONUS!";
+    switch(result.symbol){
 
-    }else{
+        case 777:
+            balls += 2000;
+            document.getElementById("message").innerText =
+            "🌈777 BONUS! +2000";
+            break;
 
-        document.getElementById("message").innerText =
-        "ハズレ";
+        case 111:
+        case 333:
+        case 555:
+        case 999:
+            balls += 500;
+            document.getElementById("message").innerText =
+            result.symbol + " RUSH! +500";
+            break;
+
+        case 222:
+        case 444:
+        case 666:
+        case 888:
+            balls += 500;
+            document.getElementById("message").innerText =
+            result.symbol + " BONUS! +500";
+            break;
 
     }
+
+}else{
+
+    document.getElementById("message").innerText =
+    "ハズレ";
+
+}
+
+updateScreen();
 
 }
 
