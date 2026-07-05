@@ -35,6 +35,8 @@ needle.name;
 
 updateScreen();
 
+setInterval(consumeReserve,1000);
+
 // ------------------------
 
 document
@@ -216,6 +218,32 @@ if(index < reserve.length){
 
 }
     
+// ------------------------
+
+function consumeReserve(){
+
+    if(reserve.length === 0){
+        return;
+    }
+
+    const result = reserve.shift();
+
+    updateReserve();
+
+    if(result.hit){
+
+        document.getElementById("message").innerText =
+        result.symbol + " BONUS!";
+
+    }else{
+
+        document.getElementById("message").innerText =
+        "ハズレ";
+
+    }
+
+}
+
 // ------------------------
 
 function updateScreen(){
