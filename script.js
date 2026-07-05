@@ -227,3 +227,5 @@ function updateScreen(){
     loan;
 
 }
+
+alert("script読み込み成功");
