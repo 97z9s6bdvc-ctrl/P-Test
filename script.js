@@ -211,6 +211,10 @@ if(index < reserve.length){
     slot.style.background = "#444";
 
 }
+
+});
+
+}
     
 // ------------------------
 
