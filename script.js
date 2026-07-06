@@ -8,6 +8,7 @@ let loan = 1;
 // 打ち出し
 let firing = false;
 let fireTimer = null;
+let rush = false;
 let drawing = false;
 
 // 保留
@@ -116,11 +117,12 @@ function animateBall(){
 
     setTimeout(()=>{
 
-        if(Math.random()<needle.rate){
+        const enterRate =
+rush ? 0.95 : needle.rate;
 
-            enterHeso();
-
-        }
+if(Math.random() < enterRate){
+    enterHeso();
+}
 
     },360);
 
@@ -269,26 +271,48 @@ setTimeout(()=>{
 
         switch(result.symbol){
 
-            case 777:
-                balls += 2000;
+case 777:
+
+    rush = true;
+
+    balls += 2000;
                 document.getElementById("message").innerText =
                 "🌈777 BONUS! +2000";
                 break;
 
-            case 111:
-            case 333:
-            case 555:
-            case 999:
-                balls += 500;
+case 111:
+case 333:
+case 555:
+case 999:
+
+    rush = true;
+
+    balls += 500;
                 document.getElementById("message").innerText =
                 result.symbol + " RUSH! +500";
                 break;
 
-            case 222:
-            case 444:
-            case 666:
-            case 888:
-                balls += 500;
+case 222:
+case 666:
+case 888:
+
+    balls += 500;
+
+    document.getElementById("message").innerText =
+    result.symbol + " BONUS! +500";
+
+    break;
+
+case 444:
+
+    rush = false;
+
+    balls += 500;
+
+    document.getElementById("message").innerText =
+    "💀444 RUSH終了 +500";
+
+    break;
                 document.getElementById("message").innerText =
                 result.symbol + " BONUS! +500";
                 break;
