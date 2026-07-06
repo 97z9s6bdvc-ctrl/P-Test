@@ -299,6 +299,13 @@ case 777:
     document.body.classList.add("rush");
 
     balls += 2000;
+    document.body.classList.add("flash");
+
+setTimeout(()=>{
+
+    document.body.classList.remove("flash");
+
+},1200);
                 document.getElementById("message").innerText =
                 "🌈777 BONUS! +2000";
                 break;
@@ -312,6 +319,13 @@ case 999:
     document.body.classList.add("rush");
 
     balls += 500;
+    document.body.classList.add("flash");
+
+setTimeout(()=>{
+
+    document.body.classList.remove("flash");
+
+},600);
                 document.getElementById("message").innerText =
                 result.symbol + " RUSH! +500";
                 break;
@@ -321,6 +335,14 @@ case 666:
 case 888:
 
     balls += 500;
+    
+    document.body.classList.add("flash");
+
+setTimeout(()=>{
+
+    document.body.classList.remove("flash");
+
+},600);
 
     document.getElementById("message").innerText =
     result.symbol + " BONUS! +500";
@@ -333,6 +355,13 @@ case 444:
     document.body.classList.remove("rush");
 
     balls += 500;
+    document.body.classList.add("flash");
+
+setTimeout(()=>{
+
+    document.body.classList.remove("flash");
+
+},600);
 
     document.getElementById("message").innerText =
     "💀444 RUSH終了 +500";

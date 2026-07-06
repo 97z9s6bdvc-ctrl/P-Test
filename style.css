@@ -155,3 +155,25 @@ body.rush{
     background: #4a0000;
 
 }
+
+@keyframes bonusFlash{
+
+    0%{
+        filter:brightness(1);
+    }
+
+    50%{
+        filter:brightness(2);
+    }
+
+    100%{
+        filter:brightness(1);
+    }
+
+}
+
+.flash{
+
+    animation:bonusFlash .2s 6;
+
+}
