@@ -8,6 +8,7 @@ let loan = 1;
 // 打ち出し
 let firing = false;
 let fireTimer = null;
+let drawing = false;
 
 // 保留
 // 保留
@@ -222,52 +223,70 @@ if(index < reserve.length){
 
 function consumeReserve(){
 
+    if(drawing){
+        return;
+    }
+
     if(reserve.length === 0){
         return;
     }
 
-    const result = reserve.shift();
+    drawing = true;
 
-    updateReserve();
+const result = reserve.shift();
+
+updateReserve();
+
+document.getElementById("message").innerText =
+"抽選中...";
+
+setTimeout(()=>{
 
     if(result.hit){
 
-    switch(result.symbol){
+        switch(result.symbol){
 
-        case 777:
-            balls += 2000;
-            document.getElementById("message").innerText =
-            "🌈777 BONUS! +2000";
-            break;
+            case 777:
+                balls += 2000;
+                document.getElementById("message").innerText =
+                "🌈777 BONUS! +2000";
+                break;
 
-        case 111:
-        case 333:
-        case 555:
-        case 999:
-            balls += 500;
-            document.getElementById("message").innerText =
-            result.symbol + " RUSH! +500";
-            break;
+            case 111:
+            case 333:
+            case 555:
+            case 999:
+                balls += 500;
+                document.getElementById("message").innerText =
+                result.symbol + " RUSH! +500";
+                break;
 
-        case 222:
-        case 444:
-        case 666:
-        case 888:
-            balls += 500;
-            document.getElementById("message").innerText =
-            result.symbol + " BONUS! +500";
-            break;
+            case 222:
+            case 444:
+            case 666:
+            case 888:
+                balls += 500;
+                document.getElementById("message").innerText =
+                result.symbol + " BONUS! +500";
+                break;
+
+        }
+
+    }else{
+
+        const miss =
+        Math.floor(100 + Math.random()*900);
+
+        document.getElementById("message").innerText =
+        miss;
 
     }
 
-}else{
+    updateScreen();
 
-    document.getElementById("message").innerText =
-    "ハズレ";
+    drawing = false;
 
-}
-
-updateScreen();
+},800);
 
 }
 
