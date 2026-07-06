@@ -329,9 +329,15 @@ const miss = createMissNumber();
 
     updateScreen();
 
-    drawing = false;
+    // ←ここでは解除しない
 
-},80000);
+    setTimeout(()=>{
+
+        drawing = false;
+
+    },1000);
+
+},10000);
 
 }
 
