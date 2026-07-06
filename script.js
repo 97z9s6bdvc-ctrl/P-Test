@@ -37,8 +37,6 @@ needle.name;
 
 updateScreen();
 
-setInterval(consumeReserve,1000);
-
 // ------------------------
 
 document
@@ -141,9 +139,11 @@ function enterHeso(){
 
 reserve.push(lottery());
 
-    updateReserve();
-    updateScreen();
+updateReserve();
+updateScreen();
 
+if(!drawing){
+    consumeReserve();
 }
         
 // ------------------------
@@ -152,8 +152,11 @@ function createMissNumber(){
 
     while(true){
 
-        const number =
-        Math.floor(100 + Math.random()*900);
+const a = Math.floor(Math.random()*9)+1;
+const b = Math.floor(Math.random()*9)+1;
+const c = Math.floor(Math.random()*9)+1;
+
+const number = a*100 + b*10 + c;
 
         const a = Math.floor(number/100);
         const b = Math.floor(number/10)%10;
@@ -331,11 +334,15 @@ const miss = createMissNumber();
 
     // ←ここでは解除しない
 
-    setTimeout(()=>{
+setTimeout(()=>{
 
-        drawing = false;
+    drawing = false;
 
-    },1000);
+    if(reserve.length > 0){
+        consumeReserve();
+    }
+
+},1000);
 
 },10000);
 
