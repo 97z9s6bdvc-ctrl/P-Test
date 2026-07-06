@@ -271,6 +271,9 @@ function consumeReserve(){
 const result = reserve.shift();
 
 spin++;
+if(spin > maxSpin){
+    maxSpin = spin;
+}
 
 updateReserve();
 
