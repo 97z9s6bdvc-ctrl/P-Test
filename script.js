@@ -222,7 +222,10 @@ if(index < reserve.length){
     switch(reserve[index].color){
 
         case "white":
-            slot.style.background = "white";
+        
+ slot.style.background =
+reserve[index].color;
+
             break;
 
         case "red":
@@ -271,7 +274,12 @@ document.getElementById("message").innerText =
 
 setTimeout(()=>{
 
-    if(result.hit){
+if(result.hit){
+
+    document.getElementById("message").innerText =
+    "✨リーチ！✨";
+
+    setTimeout(()=>{
 
         switch(result.symbol){
 
