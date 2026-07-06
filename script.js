@@ -131,12 +131,17 @@ if(Math.random() < enterRate){
 
 function enterHeso(){
 
-    if(reserve.length >= MAX_RESERVE){
-        return;
-    }
+// ヘソ賞球
+balls++;
 
-    // ヘソ賞球
-    balls++;
+balls++;
+
+if(reserve.length >= MAX_RESERVE){
+
+    updateScreen();
+    return;
+
+}
 
 reserve.push(lottery());
 
@@ -276,6 +281,8 @@ setTimeout(()=>{
 
 if(result.hit){
 
+spin = 0;
+updateScreen();
     document.getElementById("message").innerText =
     "✨リーチ！✨";
 
@@ -286,6 +293,7 @@ if(result.hit){
 case 777:
 
     rush = true;
+    document.body.classList.add("rush");
 
     balls += 2000;
                 document.getElementById("message").innerText =
@@ -298,6 +306,7 @@ case 555:
 case 999:
 
     rush = true;
+    document.body.classList.add("rush");
 
     balls += 500;
                 document.getElementById("message").innerText =
@@ -318,6 +327,7 @@ case 888:
 case 444:
 
     rush = false;
+    document.body.classList.remove("rush");
 
     balls += 500;
 

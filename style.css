@@ -143,3 +143,15 @@ button:hover{
 button:active{
     transform:scale(.96);
 }
+
+body{
+
+    transition: background .4s;
+
+}
+
+body.rush{
+
+    background: #4a0000;
+
+}
