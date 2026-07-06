@@ -4,6 +4,7 @@
 
 let balls = 250;
 let loan = 1;
+let spin = 0;
 
 // 打ち出し
 let firing = false;
@@ -263,6 +264,8 @@ function consumeReserve(){
 
 const result = reserve.shift();
 
+spin++;
+
 updateReserve();
 
 document.getElementById("message").innerText =
@@ -354,9 +357,11 @@ function updateScreen(){
 
     document.getElementById("balls").innerText =
     balls;
-
     document.getElementById("loan").innerText =
     loan;
+
+document.getElementById("spin").innerText =
+spin;
 
 }
 
