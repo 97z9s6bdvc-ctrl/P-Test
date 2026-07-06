@@ -316,6 +316,7 @@ case 555:
 case 999:
 
     rush = true;
+    
     document.body.classList.add("rush");
 
     balls += 500;

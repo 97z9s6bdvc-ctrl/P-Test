@@ -177,3 +177,15 @@ body.rush{
     animation:bonusFlash .2s 6;
 
 }
+
+body{
+
+    transition: background-color 0.4s;
+
+}
+
+body.rush{
+
+    background-color:#5b0000;
+
+}
