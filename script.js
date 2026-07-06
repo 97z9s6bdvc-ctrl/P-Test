@@ -146,6 +146,8 @@ updateScreen();
 if(!drawing){
     consumeReserve();
 }
+
+}
         
 // ------------------------
 
@@ -158,10 +160,6 @@ const b = Math.floor(Math.random()*9)+1;
 const c = Math.floor(Math.random()*9)+1;
 
 const number = a*100 + b*10 + c;
-
-        const a = Math.floor(number/100);
-        const b = Math.floor(number/10)%10;
-        const c = number%10;
 
         // 111、222…999は禁止
         if(a===b && b===c){
