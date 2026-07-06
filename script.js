@@ -18,10 +18,10 @@ const MAX_RESERVE = 4;
 
 // 釘
 const needleTable = [
-    {name:"🥕", rate:0.035},
-    {name:"🐇", rate:0.045},
-    {name:"🌙", rate:0.055},
-    {name:"🌕", rate:0.063},
+    {name:"🥕", rate:0.050},
+    {name:"🐇", rate:0.055},
+    {name:"🌙", rate:0.060},
+    {name:"🌕", rate:0.065},
     {name:"🌏", rate:0.070}
 ];
 
