@@ -146,6 +146,28 @@ reserve.push(lottery());
         
 // ------------------------
 
+function createMissNumber(){
+
+    while(true){
+
+        const number =
+        Math.floor(100 + Math.random()*900);
+
+        const a = Math.floor(number/100);
+        const b = Math.floor(number/10)%10;
+        const c = number%10;
+
+        // 111、222…999は禁止
+        if(a===b && b===c){
+            continue;
+        }
+
+        return number;
+
+    }
+
+}
+
 function lottery(){
 
     const hit = Math.random() < (1/99);
@@ -158,12 +180,13 @@ function lottery(){
         };
     }
 
-    const symbols = [
-        111,222,333,444,
-        555,666,777,888,999
-    ];
+const symbols = [
+111,222,333,444,
+555,666,777,888,999
+];
 
-	const symbol = 777;
+const symbol =
+symbols[Math.floor(Math.random()*symbols.length)];
 
     let color = "white";
 
@@ -274,9 +297,7 @@ setTimeout(()=>{
 
     }else{
 
-        const miss =
-        Math.floor(100 + Math.random()*900);
-
+const miss = createMissNumber();
         document.getElementById("message").innerText =
         miss;
 
