@@ -331,7 +331,7 @@ const miss = createMissNumber();
 
     drawing = false;
 
-},800);
+},8000);
 
 }
 
